@@ -1,0 +1,6 @@
+
+
+class Ingredents < ApplicationRecord
+
+
+end

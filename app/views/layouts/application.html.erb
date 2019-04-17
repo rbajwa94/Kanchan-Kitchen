@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kanchan Kitchen</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <%= link_to 'Kanchan Kitchen', root_path, { class: 'navbar-brand' } %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Recipes</a>
+            <div class="nav-item">
+               <%= link_to 'All', recipes_path, { class: 'dropdown-item' } %>
+               
+                <%= link_to 'New', new_recipe_path, { class: 'dropdown-item' } %>
+                
+            </div>
+          </li>
+        </ul>
+
+        <div class="my-2 my-lg-0">
+          <div class="nav-item text-light">
+            <% if signed_in? %>
+              Hello <%= current_user.email %>
+              <%= link_to 'Sign out', sign_out_path, method: :delete, class: 'btn btn-primary' %>
+            <% else %>
+              <%= link_to 'Sign in', sign_in_path, class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <br>
+
+    <div class="container">
+
+      <div id="flash">
+        <% flash.each do |key, value| %>
+          <div class="alert alert-danger" role="alert">
+            <%= value %>
+          </div>
+        <% end %>
+      </div>
+
+      <%= yield %>
+    </div>
+
+  </body>
+</html>

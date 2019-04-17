@@ -1,0 +1,17 @@
+<div class= "row">
+  <% @recipes.each do |recipe| %>
+    <div class= "col-sm-4">
+    
+    <% if recipe.recipe_image.attached? %>
+    <hr/>
+    <div class="row">
+    <div class= "col">
+      <%= image_tag recipe.recipe_image.variant(resize: "300*300") %>
+      </div>
+      </div>
+      <% end %>
+          <div><%= recipe.title %></div>
+          <%= link_to 'RecipeDescription', recipe_path(recipe), { class: 'btn btn-primary btn-sm' } %>
+        </div>
+  <% end %>
+</div>

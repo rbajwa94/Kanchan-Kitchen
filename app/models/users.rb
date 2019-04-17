@@ -1,0 +1,7 @@
+
+class Users < ApplicationRecord
+
+end
+
+
+

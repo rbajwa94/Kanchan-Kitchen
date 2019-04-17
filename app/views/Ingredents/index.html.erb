@@ -1,0 +1,15 @@
+<table class="table">
+<tbody>
+  <% @ingredents.each do |ingredent| %>
+    <tr>
+      <th scope="row"><%= ingredent.name %></th>
+      <td style="colour: <%= transaction.category.colour %>"><%= ingredent.category.name %></td>
+      <td>
+        <div class="float-right">
+          <%= link_to 'RecipeDescription', ingredent_path(ingredent), { class: 'btn btn-primary btn-sm' } %>
+          </div>
+      </td>
+    </tr>
+  <% end %>
+</tbody>
+</table>

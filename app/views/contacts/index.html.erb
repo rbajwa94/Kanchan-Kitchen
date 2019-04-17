@@ -1,0 +1,16 @@
+# <table class="table">
+# <tbody>
+#   <% @contacts.each do |contact| %>
+#     <tr>
+#       <th scope="row"><%= transaction.name %></th>
+#       <td style="colour: <%= transaction.category.colour %>"><%= transaction.category.name %></td>
+#       <td>
+#         <div class="float-right">
+#           <%= link_to 'Details', transaction_path(transaction), { class: 'btn btn-primary btn-sm' } %>
+#           <%= link_to 'Edit', edit_transaction_path(transaction), { class: 'btn btn-primary btn-sm' } %>
+#         </div>
+#       </td>
+#     </tr>
+#   <% end %>
+# </tbody>
+# </table>
